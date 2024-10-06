@@ -17,7 +17,7 @@ var (
 func main() {
 	server := gin.New()
 
-	server.Use(gin.Recovery(), gin.Logger(), middlewares.Logger())
+	server.Use(gin.Recovery(), middlewares.Logger(), middlewares.BasicAuth())
 
 	server.GET("/ping", func(ctx *gin.Context) {
 		ctx.JSON(http.StatusOK, gin.H{"message": "pong"})
