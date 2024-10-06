@@ -5,6 +5,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/pavan-ambekar/gin-poc/controller"
+	"github.com/pavan-ambekar/gin-poc/middlewares"
 	"github.com/pavan-ambekar/gin-poc/service"
 )
 
@@ -14,7 +15,9 @@ var (
 )
 
 func main() {
-	server := gin.Default()
+	server := gin.New()
+
+	server.Use(gin.Recovery(), gin.Logger(), middlewares.Logger())
 
 	server.GET("/ping", func(ctx *gin.Context) {
 		ctx.JSON(http.StatusOK, gin.H{"message": "pong"})
