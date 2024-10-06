@@ -10,7 +10,7 @@ import (
 
 var (
 	videoService    service.VideoService       = service.New()
-	VideoController controller.VideoController = controller.New(videoService)
+	videoController controller.VideoController = controller.New(videoService)
 )
 
 func main() {
@@ -21,11 +21,11 @@ func main() {
 	})
 
 	server.GET("/videos", func(ctx *gin.Context) {
-		ctx.JSON(http.StatusOK, VideoController.FindAll())
+		ctx.JSON(http.StatusOK, videoController.FindAll())
 	})
 
 	server.POST("/videos", func(ctx *gin.Context) {
-		ctx.JSON(http.StatusCreated, VideoController.Save(ctx))
+		ctx.JSON(http.StatusCreated, videoController.Save(ctx))
 	})
 
 	server.Run(":8080")
