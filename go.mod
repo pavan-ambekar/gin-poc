@@ -2,7 +2,10 @@ module github.com/pavan-ambekar/gin-poc
 
 go 1.22.3
 
-require github.com/gin-gonic/gin v1.10.0
+require (
+	github.com/gin-gonic/gin v1.10.0
+	github.com/tpkeeper/gin-dump v1.0.1
+)
 
 require (
 	github.com/bytedance/sonic v1.12.3 // indirect

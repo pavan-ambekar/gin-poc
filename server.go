@@ -7,6 +7,7 @@ import (
 	"github.com/pavan-ambekar/gin-poc/controller"
 	"github.com/pavan-ambekar/gin-poc/middlewares"
 	"github.com/pavan-ambekar/gin-poc/service"
+	gindump "github.com/tpkeeper/gin-dump"
 )
 
 var (
@@ -17,7 +18,7 @@ var (
 func main() {
 	server := gin.New()
 
-	server.Use(gin.Recovery(), middlewares.Logger(), middlewares.BasicAuth())
+	server.Use(gin.Recovery(), middlewares.Logger(), middlewares.BasicAuth(), gindump.Dump())
 
 	server.GET("/ping", func(ctx *gin.Context) {
 		ctx.JSON(http.StatusOK, gin.H{"message": "pong"})
