@@ -1,9 +1,24 @@
-[GIN-debug] GET    /ping                     --> main.main.func1 (5 handlers)
-[GIN-debug] GET    /videos                   --> main.main.func2 (5 handlers)
-[GIN-debug] POST   /videos                   --> main.main.func3 (5 handlers)
+[GIN-debug] GET    /api/ping                 --> main.main.func1 (5 handlers)
+[GIN-debug] GET    /api/videos               --> main.main.func2 (5 handlers)
+[GIN-debug] POST   /api/videos               --> main.main.func3 (5 handlers)
+[GIN-debug] GET    /view/videos              --> github.com/pavan-ambekar/gin-poc/controller.VideoController.ShowAll-fm (5 handlers)
 [GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
 Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
 [GIN-debug] Listening and serving HTTP on :8080
-::1 - [08 Oct 24 23:51 IST] POST    "/videos" 400 5.7832ms 
-::1 - [08 Oct 24 23:51 IST] POST    "/videos" 201 8.7839ms 
-::1 - [08 Oct 24 23:51 IST] GET     "/videos" 200 9.2377ms 
+::1 - [13 Oct 24 20:12 IST] GET     "/view/videos" 200 4.9966ms 
+::1 - [13 Oct 24 20:12 IST] GET     "/view/videos" 200 14.7521ms 
+::1 - [13 Oct 24 20:12 IST] GET     "/view/videos" 200 11.0531ms 
+::1 - [13 Oct 24 20:12 IST] GET     "/view/videos" 200 6.9193ms 
+::1 - [13 Oct 24 20:12 IST] GET     "/view/videos" 200 6.7161ms 
+::1 - [13 Oct 24 20:12 IST] GET     "/view/videos" 200 5.5212ms 
+::1 - [13 Oct 24 20:12 IST] GET     "/view/videos" 200 4.121ms 
+::1 - [13 Oct 24 20:12 IST] GET     "/view/videos" 200 5.4546ms 
+::1 - [13 Oct 24 20:13 IST] POST    "/api/videos" 201 9.8923ms 
+::1 - [13 Oct 24 20:13 IST] GET     "/view/videos" 200 7.1113ms 
+::1 - [13 Oct 24 20:14 IST] POST    "/api/videos" 201 4.3719ms 
+::1 - [13 Oct 24 20:14 IST] GET     "/view/videos" 200 11.5344ms 
+::1 - [13 Oct 24 20:15 IST] GET     "/view/videos" 200 5.4993ms 
+::1 - [13 Oct 24 20:15 IST] GET     "/view/videos" 200 6.0153ms 
+::1 - [13 Oct 24 20:15 IST] GET     "/view/videos" 200 12.2582ms 
+::1 - [13 Oct 24 20:16 IST] GET     "/view/videos" 200 9.9219ms 
+::1 - [13 Oct 24 20:18 IST] GET     "/view/videos" 200 6.2724ms 
