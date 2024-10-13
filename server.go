@@ -2,6 +2,7 @@ package main
 
 import (
 	"net/http"
+	"os"
 
 	"github.com/gin-gonic/gin"
 	"github.com/pavan-ambekar/gin-poc/controller"
@@ -22,9 +23,10 @@ func main() {
 
 	server.LoadHTMLGlob("templates/*.html")
 
-	server.Use(gin.Recovery(), middlewares.Logger(), middlewares.BasicAuth(), gindump.Dump())
+	server.Use(gin.Recovery(), middlewares.Logger(), gindump.Dump())
 
-	apiRoutes := server.Group("/api")
+	// Basic Auth middleware applied to /api
+	apiRoutes := server.Group("/api", middlewares.BasicAuth())
 	{
 		apiRoutes.GET("/ping", func(ctx *gin.Context) {
 			ctx.JSON(http.StatusOK, gin.H{"message": "pong"})
@@ -44,10 +46,17 @@ func main() {
 		})
 	}
 
+	// Public no Auth required
 	viewRoutes := server.Group("/view")
 	{
 		viewRoutes.GET("/videos", videoController.ShowAll)
 	}
 
-	server.Run(":8080")
+	port := os.Getenv("PORT")
+
+	if port == "" {
+		port = "5000"
+	}
+
+	server.Run(":" + port)
 }
